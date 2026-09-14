@@ -8,7 +8,7 @@ if __name__ == '__main__':
     print('Starting bot...')
     app = Application.builder().token(TOKEN).build()
 
-    print(get_currency_rate("gbp"))
+
     app.add_handler(CommandHandler('start',start_command))
     app.add_handler(CommandHandler('help',help_command))
     app.add_handler(CommandHandler('custom',custom_command))
