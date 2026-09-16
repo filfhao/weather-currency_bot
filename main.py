@@ -1,6 +1,6 @@
 from telegram.ext import Application, CommandHandler, MessageHandler, filters
 from config import TOKEN
-from handlers import start_command, help_command, custom_command, handle_message, weather_command, currency_command, error
+from handlers import start_command, help_command, handle_message, weather_command, currency_command, error
 from services import get_weather, get_currency_rate
 
 
@@ -11,7 +11,6 @@ if __name__ == '__main__':
 
     app.add_handler(CommandHandler('start',start_command))
     app.add_handler(CommandHandler('help',help_command))
-    app.add_handler(CommandHandler('custom',custom_command))
     app.add_handler(CommandHandler('weather',weather_command))
     app.add_handler(CommandHandler('currency',currency_command))
 

@@ -8,10 +8,10 @@ def get_weather(city):
         response = requests.get(url,timeout=5)
         data = response.json()
     except requests.RequestException as e:
-        print(f"Помилка запиту: {e}")
-        return "❌ Не вдалося підключитися до сервера погоди"
+        print(f"Request error: {e}")
+        return "❌ Failed to connect to the weather server"
     if response.status_code !=200:
-        return "❌Місто не знайдено. Спробуй ще раз"
+        return "❌ City is not found. Try again"
     temp = data["main"]["temp"]
     desc = data["weather"][0]["description"]
     humidity = data["main"]["humidity"]
@@ -50,10 +50,10 @@ def update_currency_cache():
         response = requests.get(url, timeout=5)
         data = response.json()
     except requests.RequestException as e:
-        print(f"Помилка запиту: {e}")
-        return "❌ Не вдалося підключитися до сервера"
+        print(f"Request error: {e}")
+        return "❌ Failed to connect to the server"
     if "errCode" in data:
-        return "❌ Сервіс курсів валют тимчасово недоступний. Спробуйте ще раз через кілька хвилин."
+        return "❌ The currency exchange rate service is temporarily unavailable. Please try again in a few minutes"
     CACHE_DATA = data
     CACHE_TIME = time.time()
     return data
