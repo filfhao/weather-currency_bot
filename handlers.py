@@ -101,7 +101,7 @@ async def currency_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text(rate)
     else:
         context.user_data["waiting_currency"] = True
-        await update.message.reply_text("🪙Введіть назву валюти:")
+        await update.message.reply_text("🪙Enter the currency name:")
 
 
 async def error(update: Update, context: ContextTypes.DEFAULT_TYPE):
